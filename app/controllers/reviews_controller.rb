@@ -9,8 +9,12 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(params_reviews)
     @review.save
-    @review.restaurant_id = @restaurant.id
+    @review.restaurant = @restaurant
+    if @review.save
     redirect_to restaurant_path(@restaurant)
+    else
+      render "restaurants/show"
+    end
   end
 
   private
@@ -25,3 +29,6 @@ class ReviewsController < ApplicationController
   end
 
 end
+
+
+
