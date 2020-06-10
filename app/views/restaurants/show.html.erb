@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<div class ="container">
+<h3> Here is the info of your restaurant</h3>
+
+<p>
+  Name: <%= @restaurant.name %>
+</p>
+
+<p>
+  Address: <%= @restaurant.address %>
+</p>
+
+<p>
+  Category: <%= @restaurant.category.capitalize %>
+</p>
+
+<h2> the reviews of this place</h2>
+<%= @restaurant.reviews.each do |r| %>
+<p><%= r.content %></p>
+<%end %>
+
+<div class="btn btn-dark">
+<%= link_to 'Create a review', new_restaurant_review_path(@restaurant) %>
+</div>
+</div>
+
+
